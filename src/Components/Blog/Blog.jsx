@@ -1,6 +1,7 @@
 import React from "react";
+import { FaBookmark } from "react-icons/fa";
 
-const Blog = ({ blog }) => {
+const Blog = ({ blog, handleAddToBookmark }) => {
   const {
     title,
     cover,
@@ -10,10 +11,15 @@ const Blog = ({ blog }) => {
     posted_date,
     hashtags,
   } = blog;
+
   return (
-    <div>
-      <img src={cover} alt={`Cover picture of ${title}`} />
-      <div className="flex justify-between">
+    <div className="mb-20">
+      <img
+        className="w-full rounded-xl mb-8"
+        src={cover}
+        alt={`Cover picture of ${title}`}
+      />
+      <div className="flex justify-between mb-4">
         <div className="flex">
           <img className="w-14" src={author_img} alt="" />
           <div className="ml-6">
@@ -22,10 +28,15 @@ const Blog = ({ blog }) => {
           </div>
         </div>
         <div>
-          <span>{reading_time}min read</span>
+          <span>
+            {reading_time}min read
+            <button onClick={handleAddToBookmark} className="ml-2">
+              <FaBookmark />
+            </button>
+          </span>
         </div>
       </div>
-      <h2 className="text-4xl">{title}</h2>
+      <h2 className="text-4xl mb-4">{title}</h2>
       <p>
         {hashtags.map((hash, idx) => (
           <span key={idx}>
