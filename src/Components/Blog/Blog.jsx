@@ -30,7 +30,7 @@ const Blog = ({ blog, handleAddToBookmark }) => {
         <div>
           <span>
             {reading_time}min read
-            <button onClick={handleAddToBookmark} className="ml-2">
+            <button onClick={() => handleAddToBookmark(blog)} className="ml-2">
               <FaBookmark />
             </button>
           </span>
